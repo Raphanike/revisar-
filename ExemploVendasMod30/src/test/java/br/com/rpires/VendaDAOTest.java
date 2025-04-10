@@ -154,7 +154,7 @@ public class VendaDAOTest {
 		
 		Venda vendaConsultada = vendaDao.consultar(codigoVenda);
 		vendaConsultada.adicionarProduto(prod, 1);
-		
+
 		assertTrue(vendaConsultada.getQuantidadeTotalProdutos() == 3);
 		BigDecimal valorTotal = BigDecimal.valueOf(70).setScale(2, RoundingMode.HALF_DOWN);
 		assertTrue(vendaConsultada.getValorTotal().equals(valorTotal));
@@ -292,6 +292,7 @@ public class VendaDAOTest {
 		produto.setDescricao("Produto 1");
 		produto.setNome("Produto 1");
 		produto.setValor(valor);
+		produto.setCor("Azul");
 		produtoDao.cadastrar(produto);
 		return produto;
 	}
@@ -305,6 +306,7 @@ public class VendaDAOTest {
 		cliente.setEstado("SP");
 		cliente.setNumero(10);
 		cliente.setTel(1199999999L);
+		cliente.setCep(12345678L);
 		clienteDao.cadastrar(cliente);
 		return cliente;
 	}

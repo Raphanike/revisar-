@@ -18,4 +18,5 @@ public class TipoChaveNaoEncontradaException extends Exception {
     public TipoChaveNaoEncontradaException(String msg, Throwable e) {
         super(msg, e);
     }
+
 }

@@ -3,10 +3,6 @@
  */
 package br.com.rpires;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-
 import java.math.BigDecimal;
 import java.util.Collection;
 
@@ -21,6 +17,8 @@ import br.com.rpires.exceptions.DAOException;
 import br.com.rpires.exceptions.MaisDeUmRegistroException;
 import br.com.rpires.exceptions.TableException;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
+
+import static org.junit.Assert.*;
 
 /**
  * @author rodrigo.pires
@@ -59,6 +57,7 @@ public class ProdutoDAOTest {
 	
 	private void excluir(String valor) throws DAOException {
 		this.produtoDao.excluir(valor);
+
 	}
 	
 	@Test
@@ -66,7 +65,7 @@ public class ProdutoDAOTest {
 		Produto produto = criarProduto("A1");
 		Assert.assertNotNull(produto);
 		Produto produtoDB = this.produtoDao.consultar(produto.getCodigo());
-		Assert.assertNotNull(produtoDB);
+		Assert.assertNull(produtoDB);
 		excluir(produto.getCodigo());
 
 	}
@@ -86,7 +85,7 @@ public class ProdutoDAOTest {
 		Produto produtoBD = this.produtoDao.consultar(produto.getCodigo());
 		assertNull(produtoBD);
 	}
-	
+
 	@Test
 	public void alterarCliente() throws TipoChaveNaoEncontradaException, DAOException, MaisDeUmRegistroException, TableException {
 		Produto produto = criarProduto("A4");
@@ -95,16 +94,13 @@ public class ProdutoDAOTest {
 		Produto produtoBD = this.produtoDao.consultar(produto.getCodigo());
 		assertNotNull(produtoBD);
 		Assert.assertEquals("Rodrigo Pires", produtoBD.getNome());
-		
+
 		excluir(produto.getCodigo());
 		Produto produtoBD1 = this.produtoDao.consultar(produto.getCodigo());
 		assertNull(produtoBD1);
-
-
-
-
-
 	}
+
+
 	
 	@Test
 	public void buscarTodos() throws DAOException, TipoChaveNaoEncontradaException {

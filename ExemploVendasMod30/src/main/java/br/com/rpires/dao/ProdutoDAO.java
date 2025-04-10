@@ -65,14 +65,15 @@ public class ProdutoDAO extends GenericDAO<Produto, String> implements IProdutoD
 	protected String getQueryAtualizacao() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("UPDATE TB_PRODUTO ");
-		sb.append("SET CODIGO = ?,");
-		sb.append("NOME = ?,");
-		sb.append("DESCRICAO = ?,");
-		sb.append("VALOR = ?");
-		sb.append(" WHERE CODIGO = ?");
-		sb.append(" AND COR = ?");
+		sb.append("SET CODIGO = ?, ");
+		sb.append("NOME = ?, ");
+		sb.append("DESCRICAO = ?, ");
+		sb.append("VALOR = ?, ");
+		sb.append("COR = ? ");  // Adicionando a coluna 'cor' na query de atualização
+		sb.append("WHERE CODIGO = ?");
 		return sb.toString();
 	}
+
 
 	@Override
 	protected void setParametrosQueryAtualizacao(PreparedStatement stmUpdate, Produto entity) throws SQLException {
@@ -80,9 +81,10 @@ public class ProdutoDAO extends GenericDAO<Produto, String> implements IProdutoD
 		stmUpdate.setString(2, entity.getNome());
 		stmUpdate.setString(3, entity.getDescricao());
 		stmUpdate.setBigDecimal(4, entity.getValor());
-		stmUpdate.setString(5, entity.getCodigo());
-		stmUpdate.setString(6, entity.getCor());
+		stmUpdate.setString(5, entity.getCor());  // Adicionando o parâmetro para 'cor'
+		stmUpdate.setString(6, entity.getCodigo());
 	}
+
 
 	@Override
 	protected void setParametrosQuerySelect(PreparedStatement stmExclusao, String valor) throws SQLException {
