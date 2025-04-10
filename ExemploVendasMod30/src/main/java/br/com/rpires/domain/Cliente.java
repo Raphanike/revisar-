@@ -39,7 +39,10 @@ public class Cliente implements Persistente {
     
 	@ColunaTabela(dbName = "estado", setJavaName = "setEstado")
     private String estado;
-    
+
+	@ColunaTabela(dbName = "cep", setJavaName = "setCep")
+	private Long cep;
+
 	public String getNome() {
 		return nome;
 	}
@@ -88,9 +91,13 @@ public class Cliente implements Persistente {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
 
-	
+	public void setCep(Long cep) {
+		this.cep = cep;
+	}
 
+	public Long getCep() {
+		return cep;
+	}
 }
+

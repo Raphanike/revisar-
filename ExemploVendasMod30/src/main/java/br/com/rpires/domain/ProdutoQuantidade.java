@@ -4,6 +4,7 @@
 package br.com.rpires.domain;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 
 import anotacao.ColunaTabela;
 import anotacao.Tabela;
@@ -77,6 +78,9 @@ public class ProdutoQuantidade {
 		BigDecimal novoValor = this.produto.getValor().multiply(BigDecimal.valueOf(quantidade));
 		this.valorTotal = this.valorTotal.subtract(novoValor);
 	}
-	
-	
+
+
+    public void setDataCadastro(Instant dataCadastro) {
+		this.setDataCadastro(dataCadastro);
+    }
 }

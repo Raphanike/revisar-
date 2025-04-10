@@ -53,7 +53,7 @@ public class ProdutoDAOTest {
 		produto.setDescricao("Produto 1");
 		produto.setNome("Produto 1");
 		produto.setValor(BigDecimal.TEN);
-		produtoDao.cadastrar(produto);
+		produto.setCor("Azul");
 		return produto;
 	}
 	
@@ -67,7 +67,8 @@ public class ProdutoDAOTest {
 		Assert.assertNotNull(produto);
 		Produto produtoDB = this.produtoDao.consultar(produto.getCodigo());
 		Assert.assertNotNull(produtoDB);
-		excluir(produtoDB.getCodigo());
+		excluir(produto.getCodigo());
+
 	}
 	
 	@Test
@@ -98,6 +99,11 @@ public class ProdutoDAOTest {
 		excluir(produto.getCodigo());
 		Produto produtoBD1 = this.produtoDao.consultar(produto.getCodigo());
 		assertNull(produtoBD1);
+
+
+
+
+
 	}
 	
 	@Test

@@ -54,6 +54,7 @@ public class ClienteDAOTest {
 		cliente.setEstado("SP");
 		cliente.setNumero(10);
 		cliente.setTel(1199999999L);
+		cliente.setCep(12345678L);
 		clienteDao.cadastrar(cliente);
 		
 		Cliente clienteConsultado = clienteDao.consultar(cliente.getCpf());
@@ -72,6 +73,7 @@ public class ClienteDAOTest {
 		cliente.setEstado("SP");
 		cliente.setNumero(10);
 		cliente.setTel(1199999999L);
+		cliente.setCep(12345678L);
 		Boolean retorno = clienteDao.cadastrar(cliente);
 		Assert.assertTrue(retorno);
 		
@@ -79,6 +81,8 @@ public class ClienteDAOTest {
 		Assert.assertNotNull(clienteConsultado);
 		
 		clienteDao.excluir(cliente.getCpf());
+
+
 	}
 	
 	
@@ -92,6 +96,7 @@ public class ClienteDAOTest {
 		cliente.setEstado("SP");
 		cliente.setNumero(10);
 		cliente.setTel(1199999999L);
+		cliente.setCep(12345678L);
 		Boolean retorno = clienteDao.cadastrar(cliente);
 		Assert.assertTrue(retorno);
 		
@@ -101,6 +106,8 @@ public class ClienteDAOTest {
 		clienteDao.excluir(cliente.getCpf());
 		clienteConsultado = clienteDao.consultar(cliente.getCpf());
 		Assert.assertNull(clienteConsultado);
+
+
 	}
 	
 	@Test
@@ -113,6 +120,7 @@ public class ClienteDAOTest {
 		cliente.setEstado("SP");
 		cliente.setNumero(10);
 		cliente.setTel(1199999999L);
+		cliente.setCep(12345678L);
 		Boolean retorno = clienteDao.cadastrar(cliente);
 		Assert.assertTrue(retorno);
 		
@@ -129,6 +137,11 @@ public class ClienteDAOTest {
 		clienteDao.excluir(cliente.getCpf());
 		clienteConsultado = clienteDao.consultar(cliente.getCpf());
 		Assert.assertNull(clienteConsultado);
+
+
+
+
+
 	}
 	
 	@Test
@@ -141,6 +154,7 @@ public class ClienteDAOTest {
 		cliente.setEstado("SP");
 		cliente.setNumero(10);
 		cliente.setTel(1199999999L);
+		cliente.setCep(12345678L);
 		Boolean retorno = clienteDao.cadastrar(cliente);
 		Assert.assertTrue(retorno);
 		
@@ -152,6 +166,7 @@ public class ClienteDAOTest {
 		cliente1.setEstado("SP");
 		cliente1.setNumero(10);
 		cliente1.setTel(1199999999L);
+		cliente1.setCep(12345678L);
 		Boolean retorno1 = clienteDao.cadastrar(cliente1);
 		Assert.assertTrue(retorno1);
 		
